@@ -74,3 +74,17 @@ a.nav-link:hover{
     width: 120px;
     height: auto;
 }
+
+.analysis-form{
+    border: 1px solid gainsboro;
+    border-radius: 10px;
+    background-color: white;
+}
+.div-form{
+    padding: 5vmin 20vmin;
+    background-color: rgb(239, 239, 239);
+}
+.analysis-form>h5{
+    background-color: gainsboro;
+    padding: 10px;
+}
