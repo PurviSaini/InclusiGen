@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@1,600&display=swap');
+
+.btn-main{
+    position: absolute;
+    top:4vmin;
+    right:14vmin;
+    font-family:monospace;
+    font-size: 2.5vmin;
+    padding: 6px 15px;
+    border-radius: 40px;
+    background-color: white;
+    color: black;
+    border:none;
+    text-decoration: none;
+    box-shadow: 2px 2px 4px #525252;
+}
+
+.btn-main:hover{
+    background-color: rgb(233, 229, 229);
+    font-size: 2.7vmin;
+}
+.btn-sign{
+    margin-right:15vmin;
+}
+
+.web-name{
+    font-family: 'Libre Bodoni', serif;
+    color: white;
+    position: absolute;
+    left: 12vmin;
+    top: 25vmin;
+    font-size: 70px;
+    text-shadow: 2px 2px 4px #b41010;
+}
+
+.img-logo{
+    position: absolute;
+    left: 6.5vmin;
+    top:0;
+    opacity: 0.7;
+    width: 150px;
+    height: auto;
+}
+
+.web-tag{
+    font-family: 'Noto Sans TC', sans-serif;
+    position: absolute;
+    color: white;
+    width: 50%;
+    left: 12vmin;
+    top: 45vmin;
+    font-size: 50px;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.image{
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    max-height:100vh;
+}
