@@ -29,7 +29,7 @@ body{
 .flex-item-1{
     flex:13%;
     font-family: 'Ysabeau Infant', sans-serif;
-    font-size: 17px;
+    font-size: 20px;
     background-color:azure;
     border-right: 8px solid #c3c2c2;
 }
