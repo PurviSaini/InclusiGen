@@ -29,9 +29,14 @@
     color: white;
     position: absolute;
     left: 12vmin;
-    top: 29vmin;
+    top: 32vmin;
     font-size: 70px;
     text-shadow: 2px 2px 4px #b41010;
+    background-color: #b41010;
+    padding:3px 40px;
+    width:70vmin;
+    text-align: center;
+    border-radius: 15px;
 }
 
 .img-logo{
@@ -47,7 +52,7 @@
     font-family: 'Noto Sans TC', sans-serif;
     position: absolute;
     color: white;
-    width: 50%;
+    width: 40%;
     left: 12vmin;
     top: 49vmin;
     font-size: 50px;
