@@ -1,0 +1,23 @@
+{
+  "name": "inclusigen",
+  "version": "1.0.0",
+  "description": "Employee Community Analysis",
+  "main": "index.js",
+  "engines":{
+    "node":"14.x"
+  },
+  "scripts": {
+    "start":"node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "analysis"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.3.4",
+    "nodemon": "^3.0.1"
+  }
+}
