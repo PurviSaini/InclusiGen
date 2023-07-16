@@ -55,8 +55,19 @@
     width: 40%;
     left: 12vmin;
     top: 49vmin;
-    font-size: 50px;
+    font-size: 40px;
     text-shadow: 2px 2px 4px #000000;
+}
+#dash{
+    text-decoration: none;
+    text-align: center;
+    border-radius: 7px;
+    padding:3px 40px;
+    font-size: 20px;
+    font-family: 'Libre Bodoni', serif;
+    color: white;
+    text-shadow: 2px 2px 4px #b41010;
+    background-color: #b41010;
 }
 
 .image{
