@@ -88,3 +88,6 @@ a.nav-link:hover{
     background-color: gainsboro;
     padding: 10px;
 }
+div.canvas,canvas.canvas{
+    display: none;
+}

@@ -1,274 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Analysis | InclusiGen</title>
-    <!-- link css file -->
-    <link rel="stylesheet" href="/public/analysis.css" />
 
-    <!-- link bootstrap file -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
-      crossorigin="anonymous"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Analysis | InclusiGen</title>
+  <!-- link css file -->
+  <link rel="stylesheet" href="/public/analysis.css" />
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-  </head>
-  <body>
-    <img class="img-logo" src="/public/image/logo.png" alt="..." />
-    <!--website logo-->
+  <!-- link bootstrap file -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
+  <!-- chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- plotly.js -->
+  <script src="https://cdn.plot.ly/plotly-2.24.1.min.js" charset="utf-8"></script>
+  <!-- link font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
 
-    <h1 class="p-3" id="heading">Employee Community Analytics</h1>
-    <!--heading-->
+<body>
+  <img class="img-logo" src="/public/image/logo.png" alt="..." />
+  <!--website logo-->
 
-    <span id="user"
-      ><i class="fa fa-user-circle" aria-hidden="true"></i> User Name
-    </span>
-    <!--user logo-->
+  <h1 class="p-3" id="heading">Employee Community Analytics</h1>
+  <!--heading-->
 
-    <div class="mt-3 d-flex flex-wrap">
-      <div class="p-2 mr-3 mb-4 flex-item-1">
-        <!-- Dashboard-->
+  <span id="user"><i class="fa fa-user-circle" aria-hidden="true"></i> User Name
+  </span>
+  <!--user logo-->
 
-        <i class="fa fa-th-list" aria-hidden="true"></i> &ensp; Dashboard
-        <br /><br />
-        <nav class="nav flex-column">
-          <a class="nav-link" href="#">Form</a>
-          <a class="nav-link drop-down" href="#">
-            Graphs <i class="fa fa-caret-down" aria-hidden="true"></i>
-          </a>
-          <div class="graph-panel nav flex-column mx-3">
-            <a class="nav-link" href="#">Bar-plot</a>
-            <a class="nav-link" href="#">Histogram</a>
-            <a class="nav-link" href="#">Heatmap</a>
-            <a class="nav-link" href="#">Stacked-Histogram</a>
-          </div>
-          <a class="nav-link" href="/logout">Sign out</a>
-        </nav>
-      </div>
+  <div class="mt-3 d-flex flex-wrap">
+    <div class="p-2 mr-3 mb-4 flex-item-1">
+      <!-- Dashboard-->
 
-      <div class="p-2 m-4 mb-4 f-item flex-item-2">
-        <!--graph-->
-
-        <canvas
-          id="myCanvas"
-          style="border: 1px solid grey; width: 100%"
-        ></canvas>
-      </div>
-
-      <div class="p-4 m-4 mb-4 f-item flex-item-3">
-        <!-- Desciption of graph-->
-
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus
-        dolorem vitae sapiente error culpa in mollitia repellat nisi quaerat
-        itaque, minus accusamus temporibus? Voluptatum aspernatur soluta nobis
-        laboriosam adipisci a. Lorem ipsum dolor sit, amet consectetur
-        adipisicing elit. Delectus voluptas similique labore consectetur
-        pariatur laborum praesentium reprehenderit fuga voluptatem aspernatur,
-        tenetur provident, deserunt debitis natus tempore cum nobis, recusandae
-        fugit temporibus ducimus sint consequatur beatae porro! Excepturi
-        accusamus magni dignissimos nisi voluptates. Necessitatibus tenetur id
-        dolorum dolore quisquam eaque sint esse ullam omnis quas dolorem labore
-        in pariatur voluptate maxime fugiat, magnam reiciendis facilis amet
-        voluptates sequi maiores quidem hic consectetur? Reprehenderit, rem!
-        Excepturi debitis libero assumenda animi, eaque, in unde corporis
-        molestiae blanditiis ea maxime sint adipisci! Voluptatibus sequi
-        consequuntur incidunt, repellat harum officia aliquam quidem accusamus,
-        maiores laboriosam tempora! Natus, exercitationem maiores. Dolor ex
-        neque tempore quis quidem quibusdam qui non veritatis soluta tempora!
-        Similique in temporibus soluta nostrum ratione non assumenda accusamus
-        doloribus odit pariatur, adipisci quam vel, ita
-      </div>
+      <i class="fa fa-th-list" aria-hidden="true"></i> &ensp; Dashboard
+      <br /><br />
+      <nav class="nav flex-column">
+        <a class="nav-link"  data-target="formid" href="#">Form</a>
+        <a class="nav-link drop-down" href="#">
+          Graphs <i class="fa fa-caret-down" aria-hidden="true"></i>
+        </a>
+        <div class="graph-panel nav flex-column mx-3">
+          <a class="nav-link" href="#" data-target="myCanvas4">Heatmap</a>
+          <a class="nav-link" href="#" data-target="myCanvas2">Histogram</a>
+          <a class="nav-link" href="#" data-target="myCanvas1">Bar-plot</a>
+          <a class="nav-link" href="#" data-target="myCanvas3">Stacked-Histogram</a>
+        </div>
+        <a class="nav-link" href="/logout">Sign out</a>
+      </nav>
     </div>
-    <div class="div-form">
-    <form class="analysis-form m-5 p-5">
-      <div id="emailHelp" class="form-text">
-        We'll never share your credentials with anyone else.
-      </div>
-      <hr />
-      <h5>Personal Information</h5>
-      <hr />
-      <div class="m-3">
-        <label for="empId" class="form-label">Employee Id</label>
-        <input
-          type="text"
-          class="form-control"
-          id="empId"
-          placeholder="Write employee Id"
-        />
-      </div>
 
-      <div class="m-3">
-        <label for="empName" class="form-label">Employee Name</label>
-        <input
-          type="text"
-          class="form-control"
-          id="empName"
-          placeholder="Write employee name here"
-        />
-      </div>
-
-      <div class="m-3">
-        <label for="jobTitle" class="form-label">Job Title</label>
-        <input
-          type="text"
-          class="form-control"
-          id="jobTile"
-          placeholder="Ex., Associate, Manager, etc."
-        />
-      </div>
-
-      <div class="m-3">
-        <label for="salary" class="form-label">Salary (per month)</label>
-        <input
-          type="number"
-          class="form-control"
-          id="salary"
-          placeholder="Ex., 50000"
-        />
-      </div>
-      <br />
-      <hr />
-      <h5>For Training and Development</h5>
-      <hr />
-      <ul>
-        <li>Participated in training and development programs?
-            <div class="form-check m-3">
-                <input
-                class="form-check-input"
-                type="radio"
-                name="gotTraining"
-                id="yes"
-                />
+    <div class="p-2 m-4 mb-4 f-item flex-item-2">
+      <div class="div-form canvas" id="formid">
+        <form class="analysis-form m-5 p-5" method="post" action="/form-db-update">
+          <div id="emailHelp" class="form-text">
+            We'll never share your credentials with anyone else.
+          </div>
+          <hr />
+          <h5>Personal Information</h5>
+          <hr />
+          <div class="m-3">
+            <label for="empId" class="form-label">Employee Id</label>
+            <input type="text" class="form-control" id="empId" placeholder="Write employee Id" />
+          </div>
+    
+          <div class="m-3">
+            <label for="empName" class="form-label">Employee Name</label>
+            <input type="text" class="form-control" id="empName" placeholder="Write employee name here" />
+          </div>
+    
+          <div class="m-3">
+            <label for="jobTitle" class="form-label">Job Title</label>
+            <input type="text" class="form-control" id="jobTile" placeholder="Ex., Associate, Manager, etc." />
+          </div>
+    
+          <div class="m-3">
+            <label for="salary" class="form-label">Salary (per month)</label>
+            <input type="number" class="form-control" id="salary" placeholder="Ex., 50000" />
+          </div>
+          <br />
+          <hr />
+          <h5>For Training and Development</h5>
+          <hr />
+          <ul>
+            <li>Participated in training and development programs?
+              <div class="form-check m-3">
+                <input class="form-check-input" type="radio" name="gotTraining" id="yes" />
                 <label class="form-check-label" for="yes"> Yes </label>
-            </div>
-            <div class="form-check m-3">
-                <input
-                class="form-check-input"
-                type="radio"
-                name="gotTraining"
-                id="no"
-                checked
-                />
+              </div>
+              <div class="form-check m-3">
+                <input class="form-check-input" type="radio" name="gotTraining" id="no" checked />
                 <label class="form-check-label" for="no"> No </label>
-            </div>
-        </li>
-      </ul>
+              </div>
+            </li>
+          </ul>
+    
+          <br />
+          <hr />
+          <h5>For Employee Engagement Scores</h5>
+          <hr />
+          <div id="emailHelp" class="form-text">Please rate form 1 to 10.</div>
+          <!-- <br> -->
+          <ul>
+            <li>
+              <div class="m-3">
+                <label for="careerDev" class="form-label">Career Development</label>
+                <input type="number" class="form-control" id="careerDev" placeholder="Rate from 1 to 10" />
+              </div>
+            </li>
+    
+            <li>
+              <div class="m-3">
+                <label for="sports" class="form-label">Sports Participation</label>
+                <input type="number" class="form-control" id="sports" placeholder="Rate from 1 to 10" />
+              </div>
+            </li>
+    
+            <li>
+              <div class="m-3">
+                <label for="volunteer" class="form-label">Volunteering</label>
+                <input type="number" class="form-control" id="volunteer" placeholder="Rate from 1 to 10" />
+              </div>
+            </li>
+    
+            <li>
+              <div class="m-3">
+                <label for="webinar" class="form-label">Participation in Webinars</label>
+                <input type="number" class="form-control" id="webinar" placeholder="Rate from 1 to 10" />
+              </div>
+            </li>
+          </ul>
+    
+          <br>
+          <hr>
+          <h5>For Visualizing communication and collaboration patterns amongst Employees</h5>
+          <hr />
+          <div id="emailHelp" class="form-text">Please rate form 1 to 10.</div>
+          <!-- <br> -->
+          <ul>
+            <li>
+              <div class="m-3">
+                <label for="workRelation" class="form-label">Work PLace Relationships</label>
+                <input type="number" class="form-control" id="workRelation" placeholder="Rate from 1 to 10" />
+              </div>
+            </li>
+            <button type="submit" class="btn btn-primary m-3">Submit</button>
+        </form>
+      </div>
+    
+      <!--graph-->
+      
+      <canvas class="canvas"  id="myCanvas1" style="border: 1px solid grey; display: none;"></canvas>
+      <div class="canvas" id="myCanvas2"></div>
+      <canvas class="canvas" id="myCanvas3" style="border: 1px solid grey;display: none;"></canvas>
+      <div class="canvas" id="myCanvas4" style="border: 1px solid grey;"></div>
 
-      <br />
-      <hr />
-      <h5>For Employee Engagement Scores</h5>
-      <hr />
-      <div id="emailHelp" class="form-text">Please rate form 1 to 10.</div>
-      <!-- <br> -->
-      <ul>
-        <li>
-          <div class="m-3">
-            <label for="careerDev" class="form-label">Career Development</label>
-            <input
-              type="number"
-              class="form-control"
-              id="careerDev"
-              placeholder="Rate from 1 to 10"
-            />
-          </div>
-        </li>
-
-        <li>
-          <div class="m-3">
-            <label for="sports" class="form-label">Sports Participation</label>
-            <input
-              type="number"
-              class="form-control"
-              id="sports"
-              placeholder="Rate from 1 to 10"
-            />
-          </div>
-        </li>
-
-        <li>
-          <div class="m-3">
-            <label for="volunteer" class="form-label">Volunteering</label>
-            <input
-              type="number"
-              class="form-control"
-              id="volunteer"
-              placeholder="Rate from 1 to 10"
-            />
-          </div>
-        </li>
-
-        <li>
-          <div class="m-3">
-            <label for="webinar" class="form-label">Participation in Webinars</label>
-            <input
-              type="number"
-              class="form-control"
-              id="webinar"
-              placeholder="Rate from 1 to 10"
-            />
-          </div>
-        </li>
-      </ul>
-
-      <br>
-      <hr>
-      <h5>For Visualizing communication and collaboration patterns amongst Employees</h5>
-      <hr />
-      <div id="emailHelp" class="form-text">Please rate form 1 to 10.</div>
-      <!-- <br> -->
-      <ul>
-        <li>
-          <div class="m-3">
-            <label for="workRelation" class="form-label">Work PLace Relationships</label>
-            <input
-              type="number"
-              class="form-control"
-              id="workRelation"
-              placeholder="Rate from 1 to 10"
-            />
-          </div>
-        </li>
-      <button type="submit" class="btn btn-primary m-3">Submit</button>
-    </form>
     </div>
 
-    <!-- Demo graph-->
-    <script>
-      const canvas = document.getElementById("myCanvas");
-      const ctx = canvas.getContext("2d");
+    <div class="p-4 m-4 mb-4 f-item flex-item-3">
+      <!-- Desciption of graph-->
 
-      let xMax = (canvas.height = canvas.width);
-      let yMax = xMax;
-      ctx.transform(1, 0, 0, -1, 0, xMax);
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus
+      dolorem vitae sapiente error culpa in mollitia repellat nisi quaerat
+      itaque, minus accusamus temporibus? Voluptatum aspernatur soluta nobis
+      laboriosam adipisci a. Lorem ipsum dolor sit, amet consectetur
+      adipisicing elit. Delectus voluptas similique labore consectetur
+      pariatur laborum praesentium reprehenderit fuga voluptatem aspernatur,
+      tenetur provident, deserunt debitis natus tempore cum nobis, recusandae
+      fugit temporibus ducimus sint consequatur beatae porro! Excepturi
+      accusamus magni dignissimos nisi voluptates. Necessitatibus tenetur id
+      dolorum dolore quisquam eaque sint esse ullam omnis quas dolorem labore
+      in pariatur voluptate maxime fugiat, magnam reiciendis facilis amet
+      voluptates sequi maiores quidem hic consectetur? Reprehenderit, rem!
+      Excepturi debitis libero assumenda animi, eaque, in unde corporis
+      molestiae blanditiis ea maxime sint adipisci! Voluptatibus sequi
+      consequuntur incidunt, repellat harum officia aliquam quidem accusamus,
+      maiores laboriosam tempora! Natus, exercitationem maiores. Dolor ex
+      neque tempore quis quidem quibusdam qui non veritatis soluta tempora!
+      Similique in temporibus soluta nostrum ratione non assumenda accusamus
+      doloribus odit pariatur, adipisci quam vel, ita
+    </div>
+  </div>
+  
+  <!-- Demo graph-->
+  <!-- <script> -->
+  <!-- // const canvas = document.getElementById("myCanvas");
+      // const ctx = canvas.getContext("2d");
 
-      const xArray = [50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150];
-      const yArray = [7, 8, 8, 9, 9, 9, 10, 11, 14, 14, 15];
+      // let xMax = (canvas.height = canvas.width);
+      // let yMax = xMax;
+      // ctx.transform(1, 0, 0, -1, 0, xMax);
 
-      ctx.fillStyle = "red";
-      for (let i = 0; i < xArray.length - 1; i++) {
-        let x = (xArray[i] * xMax) / 150;
-        let y = (yArray[i] * yMax) / 15;
-        ctx.beginPath();
-        ctx.ellipse(x, y, 3, 3, 0, 0, Math.PI * 2);
-        ctx.fill();
-      }
-    </script>
+      // const xArray = [50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150];
+      // const yArray = [7, 8, 8, 9, 9, 9, 10, 11, 14, 14, 15];
 
-    <!-- link js file -->
-    <script src="/public/analysis.js"></script>
+      // ctx.fillStyle = "red";
+      // for (let i = 0; i < xArray.length - 1; i++) {
+      //   let x = (xArray[i] * xMax) / 150;
+      //   let y = (yArray[i] * yMax) / 15;
+      //   ctx.beginPath();
+      //   ctx.ellipse(x, y, 3, 3, 0, 0, Math.PI * 2);
+      //   ctx.fill();
+      // } -->
+  <!-- // </script> -->
 
-    <!-- link bootstap js file -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+  <!-- link js file -->
+  <script src="/public/analysis.js"></script>
+
+  <!-- link bootstap js file -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>

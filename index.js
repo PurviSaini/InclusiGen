@@ -43,6 +43,107 @@ app.get("/analysis",function(req,res){
     res.sendFile(__dirname+"/views/analysis.html");
 });
 
+app.get('/gender-job', async function(req, res) {
+    try {
+      const peopleByGenderJob = await Employee.aggregate([
+        {
+          $group: {
+            _id: {
+              gender: '$gender',
+              job_title: '$job_title'
+            },
+            count: { $sum: 1 }
+          }
+        },
+        {
+          $group: {
+            _id: '$_id.gender',
+            jobs: {
+              $push: {
+                job_title: '$_id.job_title',
+                count: '$count'
+              }
+            }
+          }
+        },
+        {
+          $project: {
+            _id: 0,
+            gender: '$_id',
+            jobs: {
+              $map: {
+                input: ['Associate', 'Administrator', 'Manager'], // Modify with your job titles
+                as: 'title',
+                in: {
+                  job_title: '$$title',
+                  count: {
+                    $ifNull: [
+                      {
+                        $let: {
+                          vars: {
+                            matchedJob: {
+                              $arrayElemAt: [
+                                {
+                                  $filter: {
+                                    input: '$jobs',
+                                    cond: { $eq: ['$$this.job_title', '$$title'] }
+                                  }
+                                },
+                                0
+                              ]
+                            }
+                          },
+                          in: '$$matchedJob.count'
+                        }
+                      },
+                      0
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]);
+  
+      res.json(peopleByGenderJob);
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ error: 'An error occurred' });
+    }
+  });
+    
+    // Define a route to retrieve the salary for each gender
+app.get('/salary-by-gender', async (req, res) => {
+    try {
+      const salaryByGender = await Employee.aggregate([
+        {
+          $group: {
+            _id: '$gender',
+            salary: { $push: '$salary' }
+          }
+        },
+        {
+          $project: {
+            _id: 0,
+            gender: '$_id',
+            salary: 1
+          }
+        }
+      ]);
+  
+      res.json(salaryByGender);
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ error: 'An error occurred' });
+    }
+  });
+
+  
+  //update db
+app.post("/form-db-update",(req,res)=>{
+    console.log(req.body);
+})
 app.listen(80, function () {
     console.log('Your app is listening on port ' + 80)
 });
