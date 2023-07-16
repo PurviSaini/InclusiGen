@@ -279,13 +279,38 @@ Plotly.newPlot("myCanvas4", data3, layout1).then(function () {
 //displaying graphs
 const links = document.querySelectorAll(".nav-link");
 const canvases = document.querySelectorAll(".canvas");
+//insights for each type of graph presented
+const info={"myCanvas4":`1.Identify performance patterns across factors and gender identities. <br>
+2.Factors like "Career development" and "Workplace relationships" receive higher ratings consistently. <br>
+3.Gender-based differences in performance ratings can be observed. <br>
+4.Factors like "Sports" and "Volunteering" show similar performance ratings across genders.
+`,
 
+"myCanvas1":`The chart shows gender distribution across job positions (Manager, Administrator, Associate). <br>
+No Cis Female individuals in Manager/Administrator roles, but 2 in Associate role. <br>
+1 Cis Male in Manager role, none in Administrator role, 2 in Associate role.<br>
+1 Transgender individual in Administrator/Associate roles. 1 Non-Binary individual in Manager role, 2 in Associate role.
+`,
+
+"myCanvas2":`
+1.Cis-male individuals have a wider salary distribution, ranging from $58,000 to $100,000, with three data points. <br>
+2.Cis-female individuals have a narrower salary distribution, ranging from $45,000 to $58,000, with two data points. <br>
+3.Transgender individuals have a salary distribution ranging from $45,000 to $70,000, with two data points.
+`,
+"myCanvas3":`1.The Training and Development category consists of 2 Cis-Female, 0 Cis-Male, 1 Transgender, and 2 Non-binary individuals.<br>
+2.Within the Training and Development category, there are two individuals identified as Cis-Female, indicating a moderate level of representation. <br>
+3.Interestingly, there is an absence of individuals identified as Cis-Male in the Training and Development category, suggesting a gender disparity in this field. <br>
+4.The chart includes one individual identified as Transgender, indicating some level of diversity within the Training and Development field. <br>
+`};
 // Event listener for hyperlink clicks
 links.forEach((link) => {
   link.addEventListener("click", (e) => {
     e.preventDefault();
     const target = link.getAttribute("data-target");
     showCanvas(target);
+    let insight=document.getElementById("insights");
+    insight.innerHTML=info[target];
+   
   });
 });
 
@@ -330,3 +355,4 @@ document.querySelector("form").addEventListener("submit", async (event) => {
     event.target.reset(); // Reset the form fields
   }
 });
+
