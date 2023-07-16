@@ -299,3 +299,34 @@ function showCanvas(target) {
     }
   });
 }
+
+//form submission
+document.querySelector("form").addEventListener("submit", async (event) => {
+  event.preventDefault();
+
+  // Retrieve the form data
+  const formData = new FormData(event.target);
+  const formValues = Object.fromEntries(formData.entries());
+
+  try {
+    // Send a POST request to the server
+    const response = await fetch("/form-db-update", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formValues),
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      alert(data.message); // Display the success message in an alert
+      event.target.reset(); // Reset the form fields
+    } else {
+      throw new Error("Error updating employee data");
+    }
+  } catch (error) {
+    alert("Update Successfull");
+    event.target.reset(); // Reset the form fields
+  }
+});

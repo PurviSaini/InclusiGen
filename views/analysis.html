@@ -51,7 +51,7 @@
       </nav>
     </div>
 
-    <div class="p-2 m-4 mb-4 f-item flex-item-2">
+     <div class="p-2 m-4 mb-4 f-item flex-item-2">
       <div class="div-form canvas" id="formid">
         <form class="analysis-form m-5 p-5" method="post" action="/form-db-update">
           <div id="emailHelp" class="form-text">
@@ -62,22 +62,22 @@
           <hr />
           <div class="m-3">
             <label for="empId" class="form-label">Employee Id</label>
-            <input type="text" class="form-control" id="empId" placeholder="Write employee Id" />
+            <input type="text" class="form-control" id="empId" name="empId" placeholder="Write employee Id" />
           </div>
-    
+      
           <div class="m-3">
             <label for="empName" class="form-label">Employee Name</label>
-            <input type="text" class="form-control" id="empName" placeholder="Write employee name here" />
+            <input type="text" class="form-control" id="empName" name="empName" placeholder="Write employee name here" />
           </div>
-    
+      
           <div class="m-3">
             <label for="jobTitle" class="form-label">Job Title</label>
-            <input type="text" class="form-control" id="jobTile" placeholder="Ex., Associate, Manager, etc." />
+            <input type="text" class="form-control" id="jobTitle" name="jobTitle" placeholder="Ex., Associate, Manager, etc." />
           </div>
-    
+      
           <div class="m-3">
             <label for="salary" class="form-label">Salary (per month)</label>
-            <input type="number" class="form-control" id="salary" placeholder="Ex., 50000" />
+            <input type="number" class="form-control" id="salary" name="salary" placeholder="Ex., 50000" />
           </div>
           <br />
           <hr />
@@ -86,69 +86,69 @@
           <ul>
             <li>Participated in training and development programs?
               <div class="form-check m-3">
-                <input class="form-check-input" type="radio" name="gotTraining" id="yes" />
+                <input class="form-check-input" type="radio" name="gotTraining" id="yes" value="yes" />
                 <label class="form-check-label" for="yes"> Yes </label>
               </div>
               <div class="form-check m-3">
-                <input class="form-check-input" type="radio" name="gotTraining" id="no" checked />
+                <input class="form-check-input" type="radio" name="gotTraining" id="no" value="no" checked />
                 <label class="form-check-label" for="no"> No </label>
               </div>
             </li>
           </ul>
-    
+      
           <br />
           <hr />
           <h5>For Employee Engagement Scores</h5>
           <hr />
-          <div id="emailHelp" class="form-text">Please rate form 1 to 10.</div>
+          <div id="emailHelp" class="form-text">Please rate from 1 to 10.</div>
           <!-- <br> -->
           <ul>
             <li>
               <div class="m-3">
                 <label for="careerDev" class="form-label">Career Development</label>
-                <input type="number" class="form-control" id="careerDev" placeholder="Rate from 1 to 10" />
+                <input type="number" class="form-control" id="careerDev" name="careerDev" placeholder="Rate from 1 to 10" />
               </div>
             </li>
-    
+      
             <li>
               <div class="m-3">
                 <label for="sports" class="form-label">Sports Participation</label>
-                <input type="number" class="form-control" id="sports" placeholder="Rate from 1 to 10" />
+                <input type="number" class="form-control" id="sports" name="sports" placeholder="Rate from 1 to 10" />
               </div>
             </li>
-    
+      
             <li>
               <div class="m-3">
                 <label for="volunteer" class="form-label">Volunteering</label>
-                <input type="number" class="form-control" id="volunteer" placeholder="Rate from 1 to 10" />
+                <input type="number" class="form-control" id="volunteer" name="volunteer" placeholder="Rate from 1 to 10" />
               </div>
             </li>
-    
+      
             <li>
               <div class="m-3">
                 <label for="webinar" class="form-label">Participation in Webinars</label>
-                <input type="number" class="form-control" id="webinar" placeholder="Rate from 1 to 10" />
+                <input type="number" class="form-control" id="webinar" name="webinar" placeholder="Rate from 1 to 10" />
               </div>
             </li>
           </ul>
-    
+      
           <br>
           <hr>
           <h5>For Visualizing communication and collaboration patterns amongst Employees</h5>
           <hr />
-          <div id="emailHelp" class="form-text">Please rate form 1 to 10.</div>
+          <div id="emailHelp" class="form-text">Please rate from 1 to 10.</div>
           <!-- <br> -->
           <ul>
             <li>
               <div class="m-3">
-                <label for="workRelation" class="form-label">Work PLace Relationships</label>
-                <input type="number" class="form-control" id="workRelation" placeholder="Rate from 1 to 10" />
+                <label for="workRelation" class="form-label">Work Place Relationships</label>
+                <input type="number" class="form-control" id="workRelation" name="workRelation" placeholder="Rate from 1 to 10" />
               </div>
             </li>
             <button type="submit" class="btn btn-primary m-3">Submit</button>
-        </form>
-      </div>
-    
+          </form>
+        </div>
+      
       <!--graph-->
       
       <canvas class="canvas"  id="myCanvas1" style="border: 1px solid grey; display: none;"></canvas>
@@ -182,28 +182,6 @@
       doloribus odit pariatur, adipisci quam vel, ita
     </div>
   </div>
-  
-  <!-- Demo graph-->
-  <!-- <script> -->
-  <!-- // const canvas = document.getElementById("myCanvas");
-      // const ctx = canvas.getContext("2d");
-
-      // let xMax = (canvas.height = canvas.width);
-      // let yMax = xMax;
-      // ctx.transform(1, 0, 0, -1, 0, xMax);
-
-      // const xArray = [50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150];
-      // const yArray = [7, 8, 8, 9, 9, 9, 10, 11, 14, 14, 15];
-
-      // ctx.fillStyle = "red";
-      // for (let i = 0; i < xArray.length - 1; i++) {
-      //   let x = (xArray[i] * xMax) / 150;
-      //   let y = (yArray[i] * yMax) / 15;
-      //   ctx.beginPath();
-      //   ctx.ellipse(x, y, 3, 3, 0, 0, Math.PI * 2);
-      //   ctx.fill();
-      // } -->
-  <!-- // </script> -->
 
   <!-- link js file -->
   <script src="/public/analysis.js"></script>
